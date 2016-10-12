@@ -1,1 +1,73 @@
 Add your Arduino code in this folder
+int m1=9;
+int m2=10;
+int m3=5;
+int m4=6;
+int state;
+int flag;
+void setup() {
+  // put your setup code here, to run once:
+pinMode(m1,OUTPUT);
+pinMode(m2,OUTPUT);
+pinMode(m3,OUTPUT);
+pinMode(m4,OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+if(Serial.available()>0)
+{state=Serial.read();
+Serial.println(state);
+flag=0;
+
+if(state=='A');
+{
+  digitalWrite(m1,HIGH);
+  digitalWrite(m2,LOW);
+  digitalWrite(m3,HIGH);
+  digitalWrite(m4,LOW);
+  if(flag==0);
+ { Serial.println("motar:off");
+flag=1;
+}}
+ if(state=='B')
+{digitalWrite(m1,LOW);
+digitalWrite(m2,HIGH);
+digitalWrite(m3,LOW);
+digitalWrite(m4,HIGH);
+if(flag==0)
+{Serial.println("motor:right");
+flag=1;
+}
+}
+if(state=='C')
+{digitalWrite(m1,LOW);
+digitalWrite(m2,HIGH);
+digitalWrite(m3,HIGH);
+digitalWrite(m4,LOW);
+if(flag==0)
+{Serial.println("motor:right");
+flag=1;
+}
+}
+if(state=='D')
+{digitalWrite(m1,HIGH);
+digitalWrite(m2,LOW);
+digitalWrite(m3,LOW);
+digitalWrite(m4,HIGH);
+if(flag==0)
+{Serial.println("motor:right");
+flag=1;
+}}
+if(state=='E')
+{digitalWrite(m1,LOW);
+digitalWrite(m2,LOW);
+digitalWrite(m3,LOW);
+digitalWrite(m4,LOW);
+if(flag==0)
+{Serial.println("motor:right");
+flag=1;
+}}
+}
+}
